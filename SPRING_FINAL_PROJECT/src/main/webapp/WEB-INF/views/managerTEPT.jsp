@@ -195,7 +195,7 @@
                     <div class="col-md-6 col-xs-12">
                         <div class="input-group">
                             <c:if test="${allAccounts!=null}">
-                            <select class="form-control" name="account">
+                            <select class="form-control" name="account" id="id_21">
                                 <c:forEach items="${allAccounts}" var="acc">
                                 <option value="${acc.id}">${acc.first_name}-${acc.last_name}</option>
                                     </c:forEach>
@@ -223,7 +223,7 @@
     function doAjax1() {
         $.ajax({
             url: 'Change2',
-            data: ({total : $('#sum1').val()}),
+            data: ({total : $('#sum1').val(), id:$('#id_21').val()}),
             success: function (data) {
                 $('#error1').html(data);
             }

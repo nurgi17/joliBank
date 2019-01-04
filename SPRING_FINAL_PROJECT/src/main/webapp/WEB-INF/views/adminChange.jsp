@@ -138,9 +138,6 @@
                                 <tbody>
                                 <c:if test="${allCurrencies!=null}">
                                     <c:forEach items="${allCurrencies}" var="cur">
-                                        <%--<c:forEach items="${allCurrencies}" var="cur1">--%>
-                                                <%--<c:if test="${cur.currency_id.id==cur1.currency_id.id&&cur.id!=cur1.id}">--%>
-                                                    <%--<c:if test="${cur.assigned_time>cur1.assigned_time}">--%>
                                 <tr>
                                     <td>${cur.id}</td>
                                     <td>${cur.currency_id.id}</td>
@@ -154,9 +151,6 @@
                                         <button class="mb-control btn btn-success sabit " nur=${cur.id} id="${cur.purchase_value}" name="${cur.sale_value}" data-box="#change_currency">CHANGE</button>
                                     </td>
                                 </tr>
-                                                    <%--</c:if>--%>
-                                        <%--</c:if>--%>
-                                <%--</c:forEach>--%>
                                     </c:forEach>
                                 </c:if>
                                 </tbody>
@@ -245,20 +239,6 @@
             '<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>')
     })
 </script>
-<%--<script type="text/javascript">--%>
-    <%--$(document).ready(function(){--%>
-        <%--$("#change_currency").click(function(e){--%>
-
-            <%--$.ajax({--%>
-                <%--url:"http://localhost:8080/Change1",--%>
-                <%--data:({param1: $('#cur_id').val()}),--%>
-                <%--success: function (data) {--%>
-                    <%--$('#pv').html(data);--%>
-                <%--}--%>
-            <%--});--%>
-        <%--});--%>
-    <%--});--%>
-<%--</script>--%>
 
 <!-- END MESSAGE BOX-->
 

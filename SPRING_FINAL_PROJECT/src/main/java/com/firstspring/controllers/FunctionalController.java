@@ -63,8 +63,13 @@ public class FunctionalController {
     }
 
     @RequestMapping(value = "/Change2", method = RequestMethod.GET, produces = {"text/html; charset=UTF-8"})
-    public @ResponseBody String change2(@RequestParam Double total){
+    public @ResponseBody String change2(@RequestParam Double total,
+                                        @RequestParam Long id){
         //This method for debet
+        Accounts account = userBean.getAccountByID(id);
+        if(account.isIs_blocked()){
+            return "Sorry but your account is blocked!!!";
+        }
         if(total>100000){//We can put in account no more than 100000 value in one transaction
             return "You can add no more than 100000!!!";
         }
@@ -76,6 +81,9 @@ public class FunctionalController {
     public @ResponseBody String change3(@RequestParam Double total,
                                         @RequestParam Long id){
         Accounts account = userBean.getAccountByID(id);//For visualize how many money this account have
+        if(account.isIs_blocked()){
+            return "Sorry but your account is blocked!!!";
+        }
         if(account.getAmount()<total){//If amount which is written more than current amount from account
             return "Sorry but you don't have enough money!!!";//This message will be appear
         }
@@ -94,7 +102,12 @@ public class FunctionalController {
         }
         Accounts account1 = userBean.getAccountByID(id);//Get account by id from database
         Accounts account2 = userBean.getAccountByID(id1);
-
+        if(account1.isIs_blocked()){
+            return "Sorry but your account is blocked!!!";
+        }
+        if(account2.isIs_blocked()){
+            return "Sorry but receiver account is blocked!!!";
+        }
         //Get currency_exchange type from database
         Currency_Exchange c1 = userBean.getCurrencyById(account1.getCurrency_id().getId());
         Currency_Exchange c2 = userBean.getCurrencyById(account2.getCurrency_id().getId());
@@ -229,6 +242,9 @@ public class FunctionalController {
         //This method is DEBET it's like you put money to your account
         Accounts account = userBean.getAccountByID(id);//Get account from database
 
+        if(account.isIs_blocked()){
+            return "redirect:managerTEPT";
+        }
         Users manager = userBean.getUser(manId);//Get manager from database who doing this transaction
         Operations operation = new Operations(oId,"DEBET");//Create new 'DEBET' operation
 
@@ -262,7 +278,9 @@ public class FunctionalController {
         //This method is CREDIT it's like you take your money from your account
 
         Accounts account = userBean.getAccountByID(id);//get current account from database
-
+        if(account.isIs_blocked()){
+            return "redirect:managerTEPT";
+        }
         Users manager = userBean.getUser(manId);//Get manager from database who doing this transaction
         Operations operation = new Operations(oId,"CREDIT");//Create new 'CREDIT' operation
 
@@ -303,6 +321,13 @@ public class FunctionalController {
         }
         Accounts account1 = userBean.getAccountByID(id1);//Get account by id from database
         Accounts account2 = userBean.getAccountByID(id2);
+
+        if(account1.isIs_blocked()){
+            return "redirect:managerTEPT";
+        }
+        if(account2.isIs_blocked()){
+            return "redirect:managerTEPT";
+        }
 
         //Get currency_exchange type from database
         Currency_Exchange c1 = userBean.getCurrencyById(account1.getCurrency_id().getId());

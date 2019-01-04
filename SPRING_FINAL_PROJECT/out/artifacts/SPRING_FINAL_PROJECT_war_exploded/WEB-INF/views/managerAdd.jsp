@@ -77,7 +77,10 @@
                                 <div class="form-group">
                                     <label class="col-md-3 col-xs-12 control-label">Select currency</label>
                                     <div class="col-md-6 col-xs-12">
-                                        <select class="form-control" name="currency">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-btc" style="margin-bottom: 7px;"></span></span>
+
+                                            <select class="form-control" name="currency">
                                             <option value="1">RUB</option>
                                             <option value="2">EUR</option>
                                             <option value="3">GBP</option>
@@ -86,6 +89,7 @@
                                             <option value="6">KGS</option>
                                             <option value="7">CNY</option>
                                         </select>
+                                        </div>
                                         <span class="help-block">Select box example</span>
                                     </div>
                                 </div>
@@ -149,7 +153,7 @@
                             <h3 class="panel-title">All accounts</h3>
                         </div>
                         <div class="panel-body">
-                            <table class="table">
+                            <table class="table dataTable">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -247,6 +251,14 @@
 <script type='text/javascript' src='resources/js/plugins/icheck/icheck.min.js'></script>
 <script type="text/javascript" src="resources/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 <script type="text/javascript" src="resources/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+
+<script type="text/javascript" src="resources/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/tableExport.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/jquery.base64.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/html2canvas.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/jspdf/jspdf.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/jspdf/libs/base64.js"></script>
 
 <script type="text/javascript" src="resources/js/plugins/morris/raphael-min.js"></script>
 <script type="text/javascript" src="resources/js/plugins/morris/morris.min.js"></script>

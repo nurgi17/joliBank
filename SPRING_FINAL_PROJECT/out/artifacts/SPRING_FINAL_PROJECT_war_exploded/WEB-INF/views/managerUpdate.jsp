@@ -77,7 +77,9 @@
                                 <div class="form-group">
                                     <label class="col-md-3 col-xs-12 control-label">Select currency</label>
                                     <div class="col-md-6 col-xs-12">
-                                        <select class="form-control" name="currency">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-btc" style="margin-bottom: 7px;"></span></span>
+                                            <select class="form-control" name="currency">
                                             <option value="1">RUB</option>
                                             <option value="2">EUR</option>
                                             <option value="3">GBP</option>
@@ -86,6 +88,7 @@
                                             <option value="6">KGS</option>
                                             <option value="7">CNY</option>
                                         </select>
+                                        </div>
                                         <span class="help-block">Select box example</span>
                                     </div>
                                 </div>
@@ -124,6 +127,21 @@
                                         <span class="help-block">Input iin number</span>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-12 control-label">Status</label>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-lock" style="margin-bottom: 7px;"></span></span>
+                                            <select class="form-control" name="status">
+                                            <option value="0">NOT BLOCKED</option>
+                                            <option value="1">BLOCKED</option>
+                                        </select>
+                                        </div>
+                                        <span class="help-block">Select statue example</span>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="panel-footer">
                                 <button class="btn btn-default" type="reset">CLEAR</button>

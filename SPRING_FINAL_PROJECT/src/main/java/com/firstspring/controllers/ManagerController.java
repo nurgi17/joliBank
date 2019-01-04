@@ -101,7 +101,8 @@ public class ManagerController {
                             @RequestParam(name = "first_name") String first_name,
                             @RequestParam(name = "last_name") String last_name,
                             @RequestParam(name = "iin_number") String iin_number,
-                            @RequestParam(name = "id") Long id){
+                            @RequestParam(name = "id") Long id,
+                            @RequestParam(name = "status") boolean status){
         //Updating and Changing account values
         Accounts account = userBean.getAccountByID(id);
         account.setAmount(amount);
@@ -111,6 +112,7 @@ public class ManagerController {
         account.setFirst_name(first_name);
         account.setLast_name(last_name);
         account.setIin_number(iin_number);
+        account.setIs_blocked(status);
         userBean.update(account);
         return "redirect:managerAdd";
     }

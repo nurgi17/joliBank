@@ -51,13 +51,22 @@
                                 <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Transactions</button>
                                 <ul class="dropdown-menu">
                                     <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false'});"><img src='resources/img/json.png' width="24"/> JSON</a></li>
-                                    <li><a href="#" onClick ="$('#customers2').tableExport({type:'doc',escape:'false'});"><img src='resources/img/word.png' width="24"/> Word</a></li>
+                                    <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});"><img src='resources/img/json.png' width="24"/> JSON (ignoreColumn)</a></li>
+                                    <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'true'});"><img src='resources/img/json.png' width="24"/> JSON (with Escape)</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#" onClick ="$('#customers2').tableExport({type:'xml',escape:'false'});"><img src='resources/img/xml.png' width="24"/> XML</a></li>
+                                    <li><a href="#" onClick ="$('#customers2').tableExport({type:'sql'});"><img src='resources/img/sql.png' width="24"/> SQL</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#" onClick ="$('#customers2').tableExport({type:'csv',escape:'false'});"><img src='resources/img/csv.png' width="24"/> CSV</a></li>
+                                    <li><a href="#" onClick ="$('#customers2').tableExport({type:'txt',escape:'false'});"><img src='resources/img/txt.png' width="24"/> TXT</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#" onClick ="$('#customers2').tableExport({type:'png',escape:'false'});"><img src='resources/img/png.png' width="24"/> PNG</a></li>
                                     <li><a href="#" onClick ="$('#customers2').tableExport({type:'pdf',escape:'false'});"><img src='resources/img/pdf.png' width="24"/> PDF</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="panel-body">
-                            <table class="table">
+                            <table id="customers2" class="table dataTable">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -135,6 +144,15 @@
 <script type='text/javascript' src='resources/js/plugins/icheck/icheck.min.js'></script>
 <script type="text/javascript" src="resources/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 <script type="text/javascript" src="resources/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+
+
+<script type="text/javascript" src="resources/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/tableExport.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/jquery.base64.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/html2canvas.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/jspdf/jspdf.js"></script>
+<script type="text/javascript" src="resources/js/plugins/tableexport/jspdf/libs/base64.js"></script>
 
 <script type="text/javascript" src="resources/js/plugins/morris/raphael-min.js"></script>
 <script type="text/javascript" src="resources/js/plugins/morris/morris.min.js"></script>
